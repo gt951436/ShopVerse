@@ -1,4 +1,4 @@
-const express = require("Express");
+const express = require("express");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const morgan = require("morgan");
@@ -15,6 +15,10 @@ app.use(cors());
 mongoose.connect(
   "mongodb+srv://gtx:gt1436@cluster0.qatmt.mongodb.net/shopverse?retryWrites=true&w=majority&appName=Cluster0"
 );
+
+// all routes available --> UserRoutes
+const UserRoutes = require("./routes/user.routes.js");
+app.use("/api/user", UserRoutes);
 
 app.listen(5000, () => {
   console.log("Server started at PORT: 5000");
