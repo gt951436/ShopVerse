@@ -20,6 +20,9 @@ mongoose.connect(
 const UserRoutes = require("./routes/user.routes.js");
 app.use("/api/user", UserRoutes);
 
+const categoryRoutes = require("./routes/category.routes.js");
+app.use("/api/category", categoryRoutes);
+
 app.listen(5000, () => {
   console.log("Server started at PORT: 5000");
 });
