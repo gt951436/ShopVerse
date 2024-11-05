@@ -22,7 +22,6 @@ productSchema.pre("save", function (next) {
   next();
 });
 productSchema.pre(["update", "findOneAndUpdate", "updateOne"], function (next) {
-  // _id -->mongodb object id
   const update = this.getUpdate();
   delete update._id;
 
