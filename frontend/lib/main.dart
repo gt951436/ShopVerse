@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/routes.dart';
+import 'package:frontend/core/ui.dart';
+import 'package:frontend/presentation/screens/auth/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +13,11 @@ class EcommerceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: Themes.defaultTheme,
+      onGenerateRoute: Routes.onGenerateRoute,
+      initialRoute: LoginScreen.routeName,
+    );
   }
 }
