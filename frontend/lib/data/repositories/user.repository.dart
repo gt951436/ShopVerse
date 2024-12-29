@@ -23,4 +23,21 @@ class userRepositoty {
       rethrow;
     }
   }
+
+  Future<userModel> signIn(
+      {required String email, required String password}) async {
+    try {
+      Response response = await _api.sendRequest.post("/user/signIn",
+          data: jsonEncode({"email": email, "password": password}));
+
+      ApiResponse apiResponse = ApiResponse.fromResponse(response);
+      if (!apiResponse.success) {
+        throw apiResponse.message.toString();
+      }
+      // convert raw data to model
+      return userModel.fromJson(apiResponse.data);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
