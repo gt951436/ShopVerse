@@ -8,7 +8,7 @@ const UserController = {
       const newUser = new UserModel(userData);
       await newUser.save();
       return res.json({
-        cuccesss: true,
+        successs: true,
         data: newUser,
         message: "New User created",
       });
