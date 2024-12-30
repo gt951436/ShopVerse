@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:frontend/core/api.dart';
 import 'package:frontend/data/models/user/user.model.dart';
 
-class userRepositoty {
+class userRepository {
   final _api = Api();
   Future<userModel> createAccount(
       {required String email, required String password}) async {
