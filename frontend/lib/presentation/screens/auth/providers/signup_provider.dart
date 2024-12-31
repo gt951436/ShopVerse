@@ -31,7 +31,7 @@ class SignupProvider with ChangeNotifier {
         notifyListeners();
       } else if (userState is UserErrorState) {
         isLoading = false;
-        error = userState.message;
+        error = userState.message ?? "An unknown error occurred";
         notifyListeners();
       } else {
         isLoading = false;

@@ -4,6 +4,7 @@ import 'package:frontend/presentation/screens/auth/login_screen.dart';
 import 'package:frontend/presentation/screens/auth/providers/login_provider.dart';
 import 'package:frontend/presentation/screens/auth/providers/signup_provider.dart';
 import 'package:frontend/presentation/screens/auth/signup_screen.dart';
+import 'package:frontend/presentation/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class Routes {
@@ -21,6 +22,10 @@ class Routes {
                 create: (context) => SignupProvider(context),
                 child: const SignupScreen()));
 
+      case HomeScreen.routeName:
+        return CupertinoPageRoute(
+          builder: (context) => HomeScreen(),
+        );
       default:
         return null; // 404 wali screen daal sakte hain!
     }

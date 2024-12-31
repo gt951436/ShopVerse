@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
   static const String routeName = "signup";
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -20,6 +21,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<SignupProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -56,6 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   if (!EmailValidator.validate(value.trim())) {
                     return "Invalid Email address!";
                   }
+                  return null;
                 },
                 labelText: "Email Address",
               ),
@@ -63,17 +66,19 @@ class _SignupScreenState extends State<SignupScreen> {
               PrimaryTextField(
                 controller: provider.passwordController,
                 labelText: "Password",
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return "Password is required!";
                   }
+                  return null;
                 },
-                obscureText: true,
               ),
               const GapWidget(),
               PrimaryTextField(
                 controller: provider.confirmPasswordController,
                 labelText: "Confirm Password",
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return "Confirm your Password!";
@@ -81,8 +86,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   if (value.trim() != provider.passwordController.text.trim()) {
                     return "Passwords do not match!";
                   }
+                  return null;
                 },
-                obscureText: true,
               ),
               const GapWidget(),
               PrimaryButton(
@@ -92,9 +97,9 @@ class _SignupScreenState extends State<SignupScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     "Already have an account?",
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyles.body2,
                   ),
                   const GapWidget(),
                   LinkButton(
