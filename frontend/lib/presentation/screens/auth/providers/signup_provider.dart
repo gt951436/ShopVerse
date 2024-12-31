@@ -6,9 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/logic/cubits/user_cubit/user_cubit.dart';
 import 'package:frontend/logic/cubits/user_cubit/user_state.dart';
 
-class LoginProvider with ChangeNotifier {
+class SignupProvider with ChangeNotifier {
   final BuildContext context;
-  LoginProvider(this.context) {
+  SignupProvider(this.context) {
     _listenToUserCubit();
   }
 
@@ -16,6 +16,7 @@ class LoginProvider with ChangeNotifier {
   String error = "";
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   StreamSubscription? _userSubscription;
 
@@ -40,7 +41,7 @@ class LoginProvider with ChangeNotifier {
     });
   }
 
-  void logIn() async {
+  void createAccount() async {
     if (!formKey.currentState!.validate()) {
       return;
     }
@@ -48,7 +49,7 @@ class LoginProvider with ChangeNotifier {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     BlocProvider.of<UserCubit>(context)
-        .signIn(email: email, password: password);
+        .createAccount(email: email, password: password);
   }
 
   @override
