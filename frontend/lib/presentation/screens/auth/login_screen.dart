@@ -13,6 +13,7 @@ import 'package:frontend/logic/cubits/user_cubit/user_state.dart';
 import 'package:frontend/presentation/screens/auth/providers/login_provider.dart';
 import 'package:frontend/presentation/screens/auth/signup_screen.dart';
 import 'package:frontend/presentation/screens/home/home_screen.dart';
+import 'package:frontend/presentation/screens/splash/splash_screen.dart';
 import 'package:frontend/presentation/screens/widgets/gap_widget.dart';
 import 'package:frontend/presentation/screens/widgets/link_button.dart';
 import 'package:frontend/presentation/screens/widgets/primary_button.dart';
@@ -34,8 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocListener<UserCubit, UserState>(
       listener: (context, state) {
         if (state is UserLoggedInState) {
-          Navigator.popUntil(context, (route) => route.isFirst);
-          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+          Navigator.pushReplacementNamed(context, SplashScreen.routeName);
         }
       },
       child: Scaffold(

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:frontend/presentation/screens/auth/login_screen.dart';
 import 'package:frontend/presentation/screens/auth/providers/login_provider.dart';
 import 'package:frontend/presentation/screens/auth/providers/signup_provider.dart';
 import 'package:frontend/presentation/screens/auth/signup_screen.dart';
 import 'package:frontend/presentation/screens/home/home_screen.dart';
+import 'package:frontend/presentation/screens/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 class Routes {
@@ -24,7 +24,12 @@ class Routes {
 
       case HomeScreen.routeName:
         return CupertinoPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => const HomeScreen(),
+        );
+
+      case SplashScreen.routeName:
+        return CupertinoPageRoute(
+          builder: (context) => const SplashScreen(),
         );
       default:
         return null; // 404 wali screen daal sakte hain!
